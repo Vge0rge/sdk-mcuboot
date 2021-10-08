@@ -49,6 +49,15 @@ mcuboot_pad:
     align: {start: CONFIG_FPROTECT_BLOCK_SIZE}
 #endif
 
+mcuboot_provision:
+#if defined(CONFIG_SOC_NRF9160) || defined(CONFIG_SOC_NRF5340_CPUAPP)
+  size: 0x1000
+  region: otp
+#else
+  size: 0x0
+  region: mcuboot_primary_app
+#endif
+
 #if (CONFIG_NRF53_MULTI_IMAGE_UPDATE)
 mcuboot_primary_1:
   region: ram_flash
