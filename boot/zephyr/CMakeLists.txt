@@ -365,3 +365,9 @@ zephyr_library_sources(
   ${BOOT_DIR}/zephyr/nrf_cleanup.c
 )
 endif()
+
+if(CONFIG_MCUBOOT_HW_DOWNGRADE_PREVENTION)
+zephyr_library_sources(
+  ${BOOT_DIR}/zephyr/nrf_nv_counters.c
+)
+endif()
